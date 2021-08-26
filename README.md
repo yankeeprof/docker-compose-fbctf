@@ -10,4 +10,6 @@ The docker compose yml creates 3 services:
 ## Docker volume for mysql service
  - You will need to create a docker volume for the mysql service so your your game data can persist.  To creat your volume you can execute the following command:
     > docker volume create ctf-data
- 
+## Starting your docker compose ctf service
+ - To start your ctf docker compose service, simply execute the following command in the directory where your fbctf docker-compose.yml file is located:
+    > docker-compose up -d 
