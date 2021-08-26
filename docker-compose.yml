@@ -1,0 +1,35 @@
+version: '3.0'
+services:
+    mysql:
+            #container_name: fbctf-mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=fbctf
+            - MYSQL_USER=fbctf
+            - MYSQL_PASSWORD=fbctf
+        volumes:
+                - ctf-data:/opt/docker/fbctf/mysql
+        image: mysql:5.5
+
+    fbctf-memcached:
+            # container_name: fbctf-memcached
+        image: memcached:latest   
+
+    fbctf:
+        container_name: fbctf
+        depends_on:
+            - fbctf-memcached 
+            - mysql
+        ports:
+            - "80:80"
+            - "443:443"  
+        environment:
+            - MYSQL_USER=fbctf
+            - MYSQL_PASSWORD=fbctf
+            - MYSQL_PORT=3306
+            - MYSQL_DATABASE=fbctf
+            - MEMCACHED_PORT=11211
+        image: rafaelfoster/fbctf:latest 
+
+volumes:
+  ctf-data:        
