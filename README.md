@@ -1,7 +1,7 @@
 # docker-compose-fbctf
 This docker compose microservice will create an fbctf scoring engine.
 ## Docker compose services
-The docker compose yml creates 3 services: 
+The docker compose yml creates 3 services using the following containers: 
  - mysql docker container
  - memcached docker container
  - The rafaelfoster/fbctf docker container
