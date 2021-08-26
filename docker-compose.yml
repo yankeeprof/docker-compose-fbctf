@@ -1,7 +1,6 @@
 version: '3.0'
 services:
     mysql:
-            #container_name: fbctf-mysql
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=fbctf
@@ -12,7 +11,6 @@ services:
         image: mysql:5.5
 
     fbctf-memcached:
-            # container_name: fbctf-memcached
         image: memcached:latest   
 
     fbctf:
